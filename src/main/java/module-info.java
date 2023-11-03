@@ -9,6 +9,8 @@ module uneverov.evgeny.poe_card_thrower {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
+    requires com.sun.jna;
+    requires com.sun.jna.platform;
 
     opens uneverov.evgeny.poe_card_thrower to javafx.fxml;
     exports uneverov.evgeny.poe_card_thrower;
