@@ -11,6 +11,10 @@ module uneverov.evgeny.poe_card_thrower {
     requires com.almasb.fxgl.all;
     requires com.sun.jna;
     requires com.sun.jna.platform;
+    requires java.desktop;
+    requires org.bytedeco.opencv;
+    requires javafx.swing;
+
 
     opens uneverov.evgeny.poe_card_thrower to javafx.fxml;
     exports uneverov.evgeny.poe_card_thrower;
