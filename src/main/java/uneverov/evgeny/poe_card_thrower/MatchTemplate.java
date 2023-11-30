@@ -1,15 +1,16 @@
 package uneverov.evgeny.poe_card_thrower;
 
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.core.Point;
-import org.opencv.core.Scalar;
+import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,9 +44,15 @@ public class MatchTemplate implements ChangeListener {
                 break;
             }
         }
-        //Imgcodecs.imwrite("src/main/java/uneverov/evgeny/poe_card_thrower/" + "result.jpg", img);
+        Imgcodecs.imwrite("src/main/java/uneverov/evgeny/poe_card_thrower/" + "result.jpg", img);
     return matches;
+    }
 
+    public static Mat BufferedImage2Mat(BufferedImage image) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ImageIO.write(image, "jpg", byteArrayOutputStream);
+        byteArrayOutputStream.flush();
+        return Imgcodecs.imdecode(new MatOfByte(byteArrayOutputStream.toByteArray()), Imgcodecs.IMREAD_UNCHANGED);
     }
 
     @Override
