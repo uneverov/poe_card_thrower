@@ -158,7 +158,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                uneverov.evgeny.poe_card_thrower/uneverov.evgeny.poe_card_thrower.HelloApplication
+                                uneverov.evgeny.poe_card_thrower/uneverov.evgeny.poe_card_thrower.Application
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
