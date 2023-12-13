@@ -1,13 +1,16 @@
-package uneverov.evgeny.poe_card_thrower;
+package uneverov.evgeny.poe_card_thrower.utils;
 
 import org.opencv.core.*;
+import org.opencv.core.Point;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import uneverov.evgeny.poe_card_thrower.managers.RobotManager;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -19,6 +22,15 @@ public class MatchTemplate implements ChangeListener {
     static Mat templ = new Mat();
     static Mat result = new Mat();
     int match_method;
+    static Robot robot;
+
+    static {
+        try {
+            robot = RobotManager.getRobotManager().getRobot();
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static List<Point> run(Mat[] args) {
         img = args[0];
@@ -44,7 +56,6 @@ public class MatchTemplate implements ChangeListener {
                 break;
             }
         }
-        Imgcodecs.imwrite("src/main/java/uneverov/evgeny/poe_card_thrower/" + "result.jpg", img);
     return matches;
     }
 
@@ -53,6 +64,11 @@ public class MatchTemplate implements ChangeListener {
         ImageIO.write(image, "jpg", byteArrayOutputStream);
         byteArrayOutputStream.flush();
         return Imgcodecs.imdecode(new MatOfByte(byteArrayOutputStream.toByteArray()), Imgcodecs.IMREAD_UNCHANGED);
+    }
+
+    public static Mat matFromScreen() throws IOException {
+        BufferedImage buffImage = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+        return BufferedImage2Mat(buffImage);
     }
 
     @Override

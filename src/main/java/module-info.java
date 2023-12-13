@@ -18,4 +18,8 @@ module uneverov.evgeny.poe_card_thrower {
 
     opens uneverov.evgeny.poe_card_thrower to javafx.fxml;
     exports uneverov.evgeny.poe_card_thrower;
+    exports uneverov.evgeny.poe_card_thrower.utils;
+    opens uneverov.evgeny.poe_card_thrower.utils to javafx.fxml;
+    exports uneverov.evgeny.poe_card_thrower.managers;
+    opens uneverov.evgeny.poe_card_thrower.managers to javafx.fxml;
 }
