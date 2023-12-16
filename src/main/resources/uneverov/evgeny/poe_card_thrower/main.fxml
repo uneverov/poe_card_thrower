@@ -3,15 +3,22 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 10;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uneverov.evgeny.poe_card_thrower.Controller">
    <children>
-      <TextArea editable="false" layoutX="6.0" opacity="0.65" prefHeight="233.0" prefWidth="600.0" text="&#10;&#10;&#10;&#10;&#10;- Open the game;&#10;- Go to Bestiary (Einhar area);&#10;- Drag your Stacked Decks to inventory;&#10;- Place your character to the left side of the area (near the portal);&#10;- Set your movement skill (Flame Dash E.g.) on &quot;E&quot; key on KeyBoard;&#10;- Press &quot;Throw Cards&quot; button." />
-      <Button layoutX="229.0" layoutY="218.0" mnemonicParsing="false" onAction="#onStartButtonClick" text="Throw Stacked Decks" />
+      <TextArea editable="false" layoutX="6.0" layoutY="4.0" opacity="0.65" prefHeight="110.0" prefWidth="588.0" text="- Open the game;&#10;- Go to the Bestiary (Einhar area);&#10;- Drag your Stacked Decks to the inventory;&#10;- Place your character to the left side of the area (near the portal, like on screen);&#10;- Set your movement skill (Flame Dash E.g.) on &quot;E&quot; key on KeyBoard;&#10;- Press &quot;Throw Stacked Decks&quot; button.&#10;" />
+      <Button layoutX="236.0" layoutY="102.0" mnemonicParsing="false" onAction="#onStartButtonClick" text="Throw Stacked Decks" />
       <Text layoutX="531.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vertion 1.1" wrappingWidth="69.0" />
-      <Hyperlink layoutX="14.0" layoutY="365.0" text="uneverov@gmail.com" />
+      <Hyperlink layoutX="466.0" layoutY="355.0" text="uneverov@gmail.com" />
+      <ImageView fitHeight="265.0" fitWidth="453.0" layoutX="6.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/mark.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="475.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your internet connection must be good!!!" wrappingWidth="104.212890625" />
    </children>
 </Pane>

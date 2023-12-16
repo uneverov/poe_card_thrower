@@ -12,11 +12,8 @@ import uneverov.evgeny.poe_card_thrower.utils.JNA;
 import uneverov.evgeny.poe_card_thrower.utils.MatchTemplate;
 import uneverov.evgeny.poe_card_thrower.utils.RobotThrow;
 import java.awt.*;
-
 import java.io.IOException;
 import java.util.List;
-
-
 import static uneverov.evgeny.poe_card_thrower.utils.MatchTemplate.matFromScreen;
 import static uneverov.evgeny.poe_card_thrower.utils.PropConst.*;
 
@@ -32,6 +29,7 @@ public class Controller {
 
     @FXML
     protected void onStartButtonClick() throws IOException, AWTException {
+        Application.pause = false;
         JNA.switchWindow("Path of Exile");
         RobotThrow.openInventory(TEMPL_INVENTORY_MAT);
         Mat matScreen = matFromScreen();
@@ -41,10 +39,6 @@ public class Controller {
             Alert alert = new Alert(Alert.AlertType.NONE, "Stacked Deck not found", ButtonType.OK);
             alert.showAndWait();
         }
-        if (Application.pause) {
-            return;
-        }
         RobotThrow.startThrow(matches, matches2, TEMPL_LIFE_MAT, TEMP_MAT);
     }
-
 }
