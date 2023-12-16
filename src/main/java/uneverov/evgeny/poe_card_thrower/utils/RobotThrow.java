@@ -2,6 +2,7 @@ package uneverov.evgeny.poe_card_thrower.utils;
 
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
+import uneverov.evgeny.poe_card_thrower.Application;
 import uneverov.evgeny.poe_card_thrower.managers.RobotManager;
 
 import javax.swing.*;
@@ -35,29 +36,32 @@ public class RobotThrow implements ChangeListener {
         boolean finished = false;
         for (int i = 0; i < 10 && !finished; ++i) {
             for (Point match : args_1) {
+                if (Application.pause) {
+                    System.exit(0);
+                }
                 robot.keyPress(KeyEvent.VK_ALT);
                 robot.mouseMove((int) match.x, (int) (match.y));
-                robot.delay(250);
+                robot.delay(150);
                 robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
-                robot.delay(250);
+                robot.delay(150);
                 robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
-                robot.delay(250);
+                robot.delay(150);
                 robot.mouseMove((int) args_2.get(0).x + templ_life.width() / 2, (int) (args_2.get(0).y) + templ_life.height() / 2);
-                robot.delay(250);
+                robot.delay(150);
                 robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-                robot.delay(250);
+                robot.delay(150);
                 robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-                robot.delay(250);
+                robot.delay(150);
                 if (!MatchTemplate.run(new Mat[]{matFromScreen(), temp}).isEmpty()) {
                     robot.mouseMove(Toolkit.getDefaultToolkit().getScreenSize().width/2-30, Toolkit.getDefaultToolkit().getScreenSize().height/2 - 25);
                     robot.delay(500);
                     robot.keyPress(KeyEvent.VK_E);
-                    robot.delay(250);
+                    robot.delay(150);
                     robot.keyRelease(KeyEvent.VK_E);
                     robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-                    robot.delay(250);
+                    robot.delay(150);
                     robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-                    robot.delay(250);
+                    robot.delay(150);
                 }
             }
         }
